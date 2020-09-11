@@ -1,0 +1,29 @@
+.list-item {
+	display: flex !important;
+}
+.list-item .item-nav {
+	background: #ffffffe8;
+	white-space: nowrap;
+	margin: 4px auto !important;
+	font-size: 15px;
+	border-radius: 14px;
+	color: #515151;
+}
+#typewriter {
+	word-break: keep-all;
+}
+@media all and (max-width:800px){
+	
+	#container div.grid {
+		display: block !important;
+		margin: auto !important;
+		width: 80% !important;
+	}
+	#container div.grid:nth-of-type(1) {
+		top: 35px;
+	}
+	footer {
+		text-align: center;
+		margin-top: 20px;
+	}
+}

@@ -1,0 +1,458 @@
+<div id="container" class="rowspan inline-flex" style="font-family:fontFace;">
+	<!-- Left column -->
+	<div id="leftcol" class="grid column-3 no-border no-margin z-index-10" style="width:360px">
+	
+		<!-- leftcol headers -->
+		<div id="header" class="display-flex relative rowspan">
+			<div class="relative" style="top:4px;z-index:8">
+				<span id="user-avatar" class="grid column-3 no-padding no-border relative cursor-pointer radius-50% overflow-hide" onclick="showProfileData()" style="background:#46464661;width:60px;height:60px">
+					<img src="{{home}}/users/{{avatar}}" style="width:100%" title="">
+				</span>
+				<span style="background:#3dee3d;padding:6px;bottom:12px;top:46px;right:6px;border-radius:40px;" class="online-spot grid absolute"></span>
+			</div>
+			<span class="grid column-2 no-padding no-border display-hide"></span>
+			
+			<span class="grid relative inline-flex" style="width:100%;min-width:max-content;margin:auto">
+				<button class="logout-btn grid relative z-index-4" style="background: none; border: 2px solid rgb(109, 109, 109); outline: none; border-radius: 14px; height: 32px; padding: 0px 8px; white-space: nowrap; max-width: max-content; color: rgb(255, 109, 156); transform: scale(0.95); display: inline-block; margin: auto;" onclick="logout(this)" title="logout">
+					Logout <i style="font-size: 1.2em;padding: 0;border-radius: 10px;transform:scale(0.9);color: #c1c1c1;outline:none;vertical-align:middle;" class="fas fa-sign-out-alt"></i>
+				</button>
+				<span id="search-field" style="display:none;width:50%;min-width:max-content;margin:0 0 0 20px;position:relative;">
+					<input class="search relative" type="search" name="finder" placeholder="Search chats here.." title="Search chats here.." oninput="doSearch(this)" style="display:block;">
+					<button class="search-go-btn z-index-4" style="background:none;border:0;outline:none;margin:0;left:0;margin-left:-45px;">
+						<i style="font-size:1.6em;padding:8px 8px;border-radius:50%;transform:scale(0.9);background:#fa11ae;color:white;border:0;outline:none;" class="fa fa-search"></i>
+					</button>
+					<button class="relative z-index-4" onclick="closeSearch()" style="background:grey;padding:10px;border-radius:12px;border:0;color:white;position: relative;margin:0 6px">Close</button>
+				</span>
+				<button class="search-btn" style="background: none; border: 0px; outline: 0px;" onclick="showSearch()" title="Search chats">
+					<i style="min-width:20px;height:20px;font-size:1.6em;color:#9b9b9b;border:2px solid #b0b0b0;padding: 8px;border-radius:50%;transform:scale(0.9);color:#b0b0b0;" class="fa fa-search"></i>
+				</button>
+				<button class="cog-btn" style="background:none;border:0px;" onclick="showProfileSettings()" title="Add new">
+					<i style="min-width:20px;height:20px;font-size:2.1em;color:#b0b0b0;border:0;margin:0 4px;border-radius:50%;" class="fa fa-cog"></i>
+				</button>
+				<button class="option-btn" style="background:none;border:0px;" onclick="toggleOptions()" title="Add new">
+					<i style="min-width:20px;height:20px;font-size:1.6em;color:#b0b0b0;border:2px solid #b0b0b0;padding: 8px;border-radius:50%;transform:scale(0.9);" class="fa fa-plus"></i>
+				</button>
+				<div id="options" class="absolute z-index-4" style="width:0px;height:0px;display:none;">
+					<li><button ontouchend="showContacts()" onmousedown="showContacts()">Start a chat</button></li>
+					<li><button ontouchend="showRequests()" onmousedown="showRequests()">Add a new friend</button></li>
+					<li><button ontouchend="showStories()" onmousedown="showStories()">Share a story</button></li>
+				</div>
+			</span>
+		</div>
+		<div id="header2" style="min-height:30px;padding:10px 0;background:;#ff45bf;color:white;margin-bottom:10px" class="display-flex relative center">
+			<button style="margin: auto;padding:6px;border:0;border-radius:4px;background:white;visibility:collapse;"> </button>
+			<button style="margin:auto 6px auto auto;padding:6px 10px;border:0;border-radius:20px;" ontouchend="showStories()" onmousedown="showStories()"> Stories <i class="fas fa-globe-africa"></i></button>
+			<button class="notif-btn" style="margin:auto 6px;padding:6px 10px;border:0;border-radius: 20px;font-size:1rem;">&nbsp;<span class="num">0</span>&nbsp;<i class="fa fa-bell" style="font-size:1rem;"></i></button>
+			<button class="logout-mobile" style="margin:auto auto auto 6px;padding:6px 10px;border:0;border-radius: 20px;font-size:14px;color:#ea008d" onclick="logout(this)"><i class="fas fa-sign-out-alt" style="font-size:1rem;"></i>&nbsp;Logout</button>
+		</div>
+		<!-- leftcol headers ends -->
+		
+		<!-- Active chat box -->
+		<div id="active-chats" class="relative">
+		
+			<!-- Members chat list here -->
+			
+			<h4 id="loading-message" class="absolute z-index-10" style="color:#c1c1c1;text-align:center;font-family:fontFace;font-weight:normal;left:50%;top:30%;transform:translate(-50%,-50%)"><i class="fa fa-spinner fa-spin"></i> Loading messages...</h4>
+			<h4 id="not-found" class="absolute" style="display:none;color:#9a9a9a;text-align:center;font-family:fontFace;font-weight:normal;left:50%;top:30%;transform:translate(-50%,-50%)">Sorry! Chat not found.<br>Please start a chat.</h4>
+		</div>
+		<!-- Active chat ends -->
+	</div>
+	
+	<!-- Center column -->
+	<div id="centercol" class="grid column-2x2 no-border no-margin inline-grid display-hide relative">
+		<!-- Start Screen -->
+		<div id="start-screen">
+			<div id="header" class="grid column-1 no-border" style="display:;none"></div>
+			<div id="content" class="dropBounce relative anim-delay-0 center" style="color:#505050">
+				<h3>Hey {{firstname}}, Thanks for showing up!</h3>
+				<h4>I am Zuppy <i class="fa fa-smile blink" style="font-size:1.8rem;color:#ff5fde;vertical-align:middle;margin:auto 4px"></i> and I have a lot to show you...</h4>
+				<button class="hoverBtn active" onclick="showRequests()" style="box-shadow:2px 4px 10px 0px #404040">Start Here!</button>
+			</div>
+		</div>
+		<!-- message board -->
+		<div class="message-board" style="display:none;background:#ffffff6b" onclick="hideChatOptions()">
+			<div id="header" class="grid column-1 no-border" style="display:none"></div>
+			<!-- Chat header -->
+			<div id="header-data" style="background:linear-gradient(to bottom, #f104a2 30%, #bb024f 330%);#d6d6d65c;border-color:#eee;height:80px;box-shadow:-4px 0 16px 0px #5858584f;">
+				<div class="display-flex" style="height:80px;">
+					
+					<button id="msgGoBack" class="relative z-index-10" style="display:none;background:none;border:2px solid white;right:0;color:white;border-radius:50%;padding:6px;width:15px;height:15px;margin:auto 0px auto 10px;" onclick="goBack();hideChatOptions()">
+						<i class="fa fa-arrow-left" style="font-size:1.2rem;top:-2px;left:-1.5px;position:relative;"></i>
+					</button>
+					<span class="avatar grid column-5 no-border no-padding relative overflow-hide cursor-pointer" style="margin-left:20px;width:60px;height:60px;margin-right:4px;border-radius:50%" onclick="viewProfile(this)">
+						<img class="absolute" src="" style="width:60px;height:60px;border-radius:50%;transform:translate(-50%,-50%);top:50%;left:50%;position:absolute">
+					</span>
+					<div id="header-info-box" class="grid column-5x2 no-border" style="margin-left:0">
+						<span class="user-info grid column-3x2 no-border no-padding" style="margin: 8px 14px 4px 14px;font-size:15px;color:white;#404040;display:block;overflow: auto;white-space:nowrap;width:max-content;font-weight:bold;">Abel Akponine (Developer)</span>
+						<!-- <span class="preview grid column-3x2 no-border inline-table" style="background: #26af2b;border-radius: 10px;padding: 4px 14px;color:white;margin: auto 10px;max-width: 160px;width: auto;font-size: 14.5px;font-family: arial;">Online</span>
+						<small class="status grid column-5 no-border inline-table" style="font-size:11px;color: #404040;vertical-align:top;font-family: unset;top: -4px;position: relative;"> *** </small> -->
+					</div>
+					<span id="video-call-btn" style="margin:auto">
+						<button style="width:24px;height:34px;border-radius:12px;border:0;color:white;font-size:16px;outline:0;background:#5a5a5ad9;box-shadow:0 0 6px 0px #ffffffc4;padding-bottom:0" onclick="startVideoCall(this)"><i class="fa fa-video"></i></button>
+					</span>
+				</div>
+			</div>
+			<!-- Chat board -->
+			<div class="display-board grid no-border absolute overflow-y-auto" style="width:calc(100% - 20px);padding:0 10px">
+				<div class="start-top-indent" style="width:100%;height:20%"></div>
+			</div>
+			
+			<div class="text-editor fixed display-flex z-index-10" style="width:43.3%">
+				<div class="emo-nav absolute z-index-4" style="display:none;">
+					<button class="active smileys-nav" onclick="showSmileys()">Smileys</button>
+					<button class="emojis-nav" onclick="showEmojis()">Emojis</button>
+				</div>
+				<div class="close-emo absolute z-index-4" style="display:none">
+					<button onclick="closeEmo()"><i class="fa fa-times"></i></button>
+				</div>
+				<!-- Smileys and Emojis board -->
+				<div class="emos absolute rowspan overflow-y-auto" style="display:none">
+					<div class="smileys grid column-2 no-border">{{Smileys}}</div>
+					<div class="emojis grid column-2 no-border" style="display:none">{{Emojis}}</div>
+				</div>
+
+				<span class="chat-options" style="background:#595959;border-radius:30px;height:40px;margin:auto 10px;padding:2px 8px;" onclick="event.stopPropagation()">
+					<button style="margin:auto 4px;background:none;border:0;" onclick="showEmo()">
+						<i class="fa fa-smile" style="transform:scale(1.5);color: white;"></i>
+					</button>
+					<span style="margin:auto;color:grey;">|</span>
+					<button style="margin:auto 4px;background:none;border:0;" class="inputLabel">
+						<label class="cursor-pointer" for="audio"><i class="fa fa-microphone" style="transform:scale(1.5);color: white;"></i></label>
+					</button>
+					<span style="margin:auto;color:grey;">|</span>
+					<button class="cursor-pointer" style="margin:auto 4px;background:none;border:0;" class="inputLabel">
+						<label class="cursor-pointer" for="camera"><i class="fa fa-camera" style="transform:scale(1.5);color: white;"></i></label>
+					</button>
+					<span style="margin:auto;color:grey;">|</span>
+					<button class="cursor-pointer" style="margin:auto 4px;background:none;border:0;" class="inputLabel">
+						<label class="cursor-pointer" for="image"><i class="fa fa-image" style="transform:scale(1.5);color: white;"></i></label>
+					</button>
+					<span style="margin:auto;color:grey;">|</span>
+					<button style="margin:auto 4px;background:none;border:0;" class="inputLabel">
+						<label class="cursor-pointer" for="files"><i class="fa fa-paperclip" style="transform:scale(1.5);color: white;"></i></label>
+					</button>
+				</span>
+				<button id="toggle" onclick="toggleChatOptions(this)" style="display:none;font-size: 1.2rem;color:#b9b9b9de;background:#d0d0d085;border:0;height:30px;border-radius:30px;margin:auto 20px auto 20px;padding:6px 15px;text-align:center;outline:0">
+					<i style="margin: auto;vertical-align: middle;" class="fa fa-chevron-right"></i>
+				</button>
+				<!-- Message input -->
+				<textarea id="txt-data" rows="0" cols="0" style="display:none"></textarea>
+				<span class="textarea relative" type="text" placeholder="Type your message.." oninput="processInput(this)" onkeyup="processInput(this)" contenteditable="" onclick="emojiPointStart=getSelection().anchorOffset;emojiPointEnd=getSelection().focusOffset;">
+					<p class="writer" style="margin:0;height:100%">&nbsp;</p>
+				</span>
+				<!-- Send button -->
+				<button class="send-btn" style="min-width:40px;max-width:40px;height:40px;background:#f104a2;box-shadow:0 0 10px 0px #ccc;border-radius:50%;border:0;margin:auto 20px;padding:2px;" onclick="sendMessage(this)">
+					<i class="fa fa-paper-plane" style="transform:rotate(40deg)scale(1.7)skewX(7deg);color:white;position:relative;left:-1px;top:-1px;"></i>
+				</button>
+			</div>
+			<!-- message board ends -->
+		</div>
+		
+		<!-- File input structure -->
+		<div class="absolute" style="bottom:62px;z-index:11;left:20px;width:max-content">
+			<span class="filecount grid z-index-4" style="display:none;font-size:13px"></span>
+			<div id="file-input" style="display:none">
+				<input id="audio" type="file" accept=".mp3,.wav,.amr,.aac,.ogg" capture="recorder" onchange="doAttachment(this)">
+				<input id="camera" type="file" accept="image/*" capture="user" onchange="doAttachment(this)">
+				<input id="image" type="file" accept="image/*" multiple onchange="doAttachment(this)">
+				<input id="files" type="file" accept=".mp4,.3gp,.pdf,.doc,.docx,.ppt,.txt" multiple onchange="doAttachment(this)">
+			</div>
+		</div>
+		<!-- File input structure ends -->
+	</div>
+	
+	<!-- Right column -->
+	<div id="rightcol" class="grid column-4 no-border no-margin relative overflow-y-auto" style="box-shadow:10px 0 20px 0px #7979794f;min-width:294px !important;">
+		<!-- <div id="header" style="border-color:#eee"></div> -->
+		<div id="header" class="display-flex cursor-pointer rowspan" style="height:100px;border-bottom:1px solid #e6e6e6;" oncontextmenu="event.preventDefault();showStories()" onclick="showStories()">
+			<div style="width:max-content;margin:auto;">
+				<span class="story grid column-3 no-padding no-border overflow-hide">
+					<video class="first" poster="{{home}}/users/{{avatar}}" style="width:60px;height:60px;border-radius:50%;" title="story"></video>
+				</span>
+				<span class="story grid column-3 no-padding no-border overflow-hide">
+					<video class="not-added" style="width:60px;height:60px;border-radius:50%;" title="story"></video>
+				</span>
+				<span class="story grid column-3 no-padding no-border overflow-hide">
+					<video class="not-added" style="width:60px;height:60px;border-radius:50%;" title="story"></video>
+				</span>
+				<span class="story grid column-3 no-padding no-border overflow-hide">
+					<video class="not-added" style="width:60px;height:60px;border-radius:50%;" title="story"></video>
+				</span>
+			</div>
+		</div>
+		<div id="misc" class="center rowspan">
+			<button class="grid column-1 no-border" onclick="showProfileSettings()">Settings</button>
+			<button class="grid column-1 no-border" onclick="showProfileData()">View Profile</button>
+			<button class="grid column-1 no-border" onclick="showContacts()">My Contacts</button>
+			<button class="grid column-1 no-border" onclick="showRequests()">View Requests</button>
+		</div>
+	</div>
+	
+	<!--  Data loader -->
+	<div id="data-loader" class="fixed rowspan z-index-10" style="display:none;width:100%;height:100%;">
+		<div id="header-layer" class="opacity-0-5 cursor-pointer" onclick="hideAllLayers()"></div>
+		
+		<!-- User Contacts -->
+		<div id="contacts-container" class="absolute z-index-4" style="display:none;background:white;width:45%;min-width:355px;height:calc(100% - 40px);padding:20px 0;left:50%;transform:translateX(-50%);">
+		
+			<!-- Close button -->
+			<button class="absolute z-index-10" style="background:none;border:2px solid #b1b1b1;right:20px;top:16px;color:#b1b1b1;border-radius:50%;padding:6px;width:15px;height:15px;transform:scale(0.9);" onclick="closeContacts()">
+				<i class="fa fa-times" style="font-size:1.2rem;top:-2px;position:relative;"></i>
+			</button>
+			
+			<div id="contacts-content" class="overflow-y-auto relative" style="height:100%;border-radius:6px;padding-left:8px;scrollbar-color:transparent transparent;top:10px;font-family:arial">
+				
+				<!-- contacts header -->
+				<div id="contacts-header" style="width:calc(100% - 8px);margin-top:6px;margin-bottom:35px;">
+					<div style="width:100%;display:flex">
+						<button class="my-contacts active" onclick="showContacts()">Contacts</button>
+						<button class="my-requests" onclick="showRequests()">Requests</button>
+					</div>
+					<div style="width:100%;display:flex">
+						<input class="contact-search" type="search" placeholder="Search contacts" oninput="doContactSearch(this)">
+						<input class="request-search" type="search" placeholder="Add new friends by name or username" oninput="doRequestSearch(this)" style="display:none">
+						<button><i class="fa fa-search" style="color:#ff11b0;font-size:1.1rem;padding:6px;background:#e8e8e8;border-radius:50%;"></i></button>
+					</div>
+				</div>
+				<!-- contacts body -->
+				<div id="contacts-body" style="width:calc(100% - 8px);padding-top:10px;">
+					<!-- contact members -->
+					<div id="my-contacts" class="contact-members">
+						<!-- Contacts -->
+						<div id="contacts" class="grid"></div>
+					</div>
+					<!-- Requests view -->
+					<div id="my-requests" class="contact-members" style="display:none">
+						
+						<!-- Friend finder -->
+						<div id="friend-finder" style="display:none;margin:5px auto;">
+							<div id="ff-loader" class="display-flex grid" style="flex-direction:column">
+								<span class="fa fa-spinner fa-spin" style="font-size:1.6rem;margin:6px auto;color:silver;"></span>
+								<span class="ff-data"></span>
+							</div>
+							<hr style="border-color:#e3e3e3;">
+						</div>
+						
+						<!-- Pending request -->
+						<div id="pending-request" class="grid"></div>
+					</div>
+					<!-- Requests view ends -->
+				</div>
+				<!-- contacts body ends -->
+			</div>
+		</div>
+	
+		<!-- Profile Data -->
+		<div id="profile-data-container" class="profiles absolute z-index-4" style="display:none;background:#fdfdfd;width:45%;min-width:355px;height:calc(100% - 40px);padding:20px 0;left:50%;transform:translateX(-50%);">
+		
+			<!-- Close button -->
+			<button class="absolute z-index-10" style="background:#ff2c8ea3;border:0;left:18px;top:20px;color:white;border-radius:50%;padding:5px 6px 6px 4px;min-width:max-content;min-height:max-content;" onclick="closeProfileData()">
+				<i class="fa fa-arrow-left" style="font-size:1.4rem;position:relative;border:0;border-radius:50%;width:22px;height:22px;padding:2px;"></i>
+			</button>
+			
+			<div id="data-content" class="overflow-y-auto relative" style="height:100%;border-radius:6px;padding-right:8px;top:10px;font-family:arial">
+		
+				<!-- Profile Image -->
+				<div class="profile-image grid overflow-hide relative" class="radius-50% relative" style="width:100%;max-width:480px;min-height:350px;margin:auto;">
+					<img class="relative" src="{{home}}/users/{{avatar}}" style="width:100%;margin:auto">
+				</div>
+				
+				<div class="profile-info grid relative" style="width:100%;max-width:480px;margin:10px auto;">
+					
+					<div class="relative" style="background:#fff7f7;box-shadow:0 -2px 10px 0 #7777773b;margin-bottom:10px;">
+						<div style="padding:0 20px;">
+							<h4 class="fullname inline-table fontFace" style="margin:20px 10px;">{{firstname}} {{lastname}} &sdot; <small style="font-size:12px"><a style="color:#ff00cb;font-size:15px;font-weight:normal">@{{username}}</a></small></h4>
+							<button class="edit-data" style="display:inline-table;background:#f4159d;color:white;border:0;padding:6px;border-radius:4px" onclick="showProfileSettings()">
+								<i class="fa fa-edit"></i>&nbsp;Edit Profile
+							</button>
+							<h4 class="age" style="margin:-10px 10px 20px 10px">Age {{Age}}</h4>
+							<h5 style="margin:-10px 10px 20px 10px"><i class="fas fa-map-marker-alt"></i> <span class="country">{{country}}</span></h5>
+						</div>
+						<table style="display:block;background:white;padding:6px 30px 30px;border-radius:6px;width:calc(100% - 60px);">
+							<td><i class="fa fa-suitcase"></i>&emsp;<span>Job Title:</span></td><td class="JobTitle">{{JobTitle}}</td><tr>
+							<td><i class="fa fa-wrench"></i>&emsp;<span>Workplace:</span></td><td class="WorkPlace">{{WorkPlace}}</td><tr>
+							<td><i class="fa fa-graduation-cap"></i>&emsp;<span>Highest Education:</span></td><td class="HighestEducation">{{HighestEducation}}</td><tr>
+							<td><i class="fa fa-heart"></i>&emsp;<span>Relationship:</span></td><td class="Relationship">{{Relationship}}</td><tr>
+							<td><i class="fa fa-birthday-cake"></i>&emsp;<span>Birthday:</span></td><td class="Birthday">{{Birthday}}</td><tr>
+						</table>
+					</div>
+					
+					<!-- Block Quote -->
+					<div id="block-quote">
+						<blockquote style="display:inline-flex;padding:20px;border-left:6px solid #404040;background:#ff2c8e;border-radius:6px 20px 10px;color:white;font-size:1.02rem;font-style:italic;margin:10px 0 20px 30px;width:calc(100% - 82px);line-height:1.5;">
+							<sup style="font-size:1.8rem;margin:10px">&ldquo;</sup><p class="Blockquote">{{Blockquote}}</p>
+						</blockquote>
+					</div>
+					
+					<!-- Gallery -->
+					<!-- <div id="gallery" class="display-block rowspan" style="margin-bottom:30px">
+						<div class="frame grid column-3 no-border">
+							<img srcc="../images/Abel.jpg" />
+						</div>
+						<div class="frame grid column-3 no-border">
+							<img srcc="../images/Abel.jpg" />
+						</div>
+						<div class="frame grid column-3 no-border">
+							<img srcc="../images/Abel.jpg" />
+						</div>
+					</div> -->
+					
+				</div>
+			</div>
+		</div>
+	
+		<!-- User Settings -->
+		<div id="user-settings" class="grid absolute z-index-5" style="display:none;background:#fdfdfd;width:45%;min-width:355px;height:calc(100% - 40px);padding:20px 0;left:50%;transform:translateX(-50%);">
+			
+			<!-- Close button -->
+			<button class="absolute z-index-10" style="background:#ff2c8ea3;border:0;left:18px;top:20px;color:white;border-radius:50%;padding:5px 6px 6px 4px;min-width:max-content;min-height:max-content;" onclick="closeProfileSettings()">
+				<i class="fa fa-arrow-left" style="font-size:1.4rem;position:relative;border:0;border-radius:50%;width:22px;height:22px;padding:2px;"></i>
+			</button>
+			
+			<div id="data-settings" class="overflow-y-auto relative" style="height:100%;border-radius:6px;scrollbar-color:transparent transparent;top:10px;">	
+				<table>
+					<td>
+						<div class="relative radius-50% overflow-hide" style="width:120px;height:120px">
+							<img id="imageUploadPreview" src="{{home}}/users/{{avatar}}" style="width:100%">
+						</div>
+					</td>
+					<td class="relative">
+						<label for="user-image-upload">
+							<span style="background:#e61a96;padding:8px 10px;border-radius:20px;cursor:pointer;color:white;box-shadow:0 0 20px 0px #d2d2d2;margin-left:-40px">Change picture</span>
+							<button style="position:absolute;margin:10px 12px;padding:8px 10px;background:#ff0a0aa3;color:white;border-radius:8px;border:0;left:-42px;bottom:-8px;" onclick="deleteProfile(this)">Delete my account <i class="fa fa-spinner fa-spin" style="display:none"></i></button>
+						</label>
+						<input type="file" id="user-image-upload" name="user-image-upload" onchange="doFileUpload(this)" style="display:none">
+					</td><tr>
+					<td colspan="2">
+						<span id="imgUploadStat" style="display:none;"><span class="fa fa-spinner fa-spin"></span> Uploading image, please wait...</span>&nbsp;<span id="imgUpMeter" style="white-space:normal;font-size:13px;"></span>
+					</td>
+				</table>
+				<hr>
+					
+				<form id="psForm" class="no-padding no-margin" action="../updateProfile" method="post" onsubmit="updateProfile(this)">
+					<table>
+						<td><i class="fa fa-user"></i>&emsp;<span>First Name:</span></td>
+						<td><input name="firstname" placeholder="Enter First Name" value="{{firstname}}" required></td><tr>
+						<td><i class="fa fa-user"></i>&emsp;<span>Last Name:</span></td>
+						<td><input name="lastname" placeholder="Enter Last Name" value="{{lastname}}" required></td><tr>
+						<td><i class="fas fa-map-marker-alt"></i>&emsp;<span>Country:</span></td>
+						<td><input name="country" placeholder="Enter Country Name" value="{{country}}" required></td><tr>
+						<td><i class="fa fa-suitcase"></i>&emsp;<span>Job Title:</span></td>
+						<td><input name="jobTitle" placeholder="Enter Job Title" value="{{JobTitle}}"></td><tr>
+						<td><i class="fa fa-wrench"></i>&emsp;<span>Workplace:</span></td>
+						<td><input name="workplace" placeholder="Enter Workplace" value="{{WorkPlace}}"></td><tr>
+						<td><i class="fa fa-graduation-cap"></i>&emsp;<span>Highest Education:</span></td>
+						<td><select name="highestEducation" class="cursor-pointer" data-value="{{HighestEducation}}">
+							<option value="N/A">Prefer not to say</option>
+							<option selected>Primary</option>
+							<option>Secondary</option>
+							<option>College</option>
+							<option>University</option>
+							<option>Masters</option>
+							<option>Phd</option>
+						</select></td><tr>
+						<td><i class="fa fa-heart"></i>&emsp;<span>Relationship:</span></td>
+						<td><select name="relationship" class="cursor-pointer" data-value="{{Relationship}}">
+							<option>Single</option>
+							<option>Dating</option>
+							<option>Married</option>
+							<option>Divorced</option>
+						</select></td><tr>
+						<td><i class="fa fa-birthday-cake"></i>&emsp;<span>Birthday:</span></td>
+						<td><input class="cursor-pointer" type="date" name="dob" value="{{dob}}"></td><tr>
+						<td colspan="2" style="position:relative;display:block;width:100%;"><hr></td><tr>
+						<td><i class="fa fa-quote-left"></i>&emsp;<span>Blockquote:</span></td>
+						<td><textarea name="blockQuote" style="background:#ffe1f6;border:0;padding:12px;min-width:220px;max-width:220px;min-height:100px;border-radius:4px">{{Blockquote}}</textarea></td><tr>
+						
+						<td><button id="updBtn" style="background:#e61a96;padding:8px 10px;border:0;border-radius:6px;cursor:pointer;color:white;box-shadow:0 0 20px 0px #d2d2d2;">Save Profile Settings <i class="fa fa-spinner fa-spin" style="display:none"></i></button></td>
+					</table>
+				</form>
+			</div>
+		</div>
+		
+		<!-- Video Call Panel -->
+		<div id="videoPane" style="display:none">
+		
+			<video id="videoImage" poster="/images/story.jpg" class="opacity-0-65" autoplay oncontextmenu="event.preventDefault();return false;"></video>
+			
+			<!-- <div class="relative absolute" style="width:60%;height:100%;left:50%;transform:translateX(-50%);">
+				<canvas id="peerView" class="absolute z-index-10" style="background:#404040;height:300px;top:0"></canvas>
+				<div id="tempimg"></div>
+				<span class="relative absolute grid z-index-10" style="background:#ec0606;color:white;bottom:4px;display:block;width:max-content;padding:6px;border-radius:4px;margin:auto">!Oops.. audio feature not yet supported!</span>
+			</div> -->
+			<video id="myVideoView" poster="/images/story.jpg" autoplay></video>
+			<span id="status" class="z-index-10">
+				<span class="info"></span>
+				<i class="call-indicator"></i>
+			</span>
+			<audio id="audioStream"></audio>
+			
+			<div id="video-actions" class="absolute z-index-10" style="display:none;top:0;left:80%;">
+				<button class="actionEnd btn hoverBtn active" onclick="endVideoCall()">
+					<i class="fas fa-phone-slash"></i>
+				</button>
+				<button class="screenSwitch btn hoverBtn active" onclick="switchScreen()" style="background:none;transform:rotate(-25deg);margin-top:10px;border:0;box-shadow:none;font-size:1.8rem;color:#ec88bb !important;">
+					<i class="fa fa-sync"></i>
+				</button>
+			</div>
+		</div>
+		
+		<!-- Status stories -->
+		<div id="stories" class="relative" style="display:none;flex-direction:column">
+			<input id="addStory" type="file" onchange="doAddStory(this)" multiple accept=".jpg,.png,.gif,.mp4,.3gp" style="display:none">
+			<div id="story-header" class="grid display-flex">
+				<button class="backbtn absolute st-nav no-bg z-index-4" onclick="closeStories()" style="border:1.5px solid;color:#ff94bc;left:10px;top:20px">
+					<i class="fa fa-arrow-left" style="position:relative;top:-2px;left:-1.5px;font-size:1.6rem"></i>
+				</button>
+				<button class="backbtn absolute st-nav no-bg z-index-4" onclick="closeStories()" style="display:none;border:1px solid;color:#ff94bc;left:10px;top:20px">
+					<i class="fa fa-times" style="position:relative;top:-2px;font-size:1.6rem"></i>
+				</button>
+
+				<span class="user-avatar grid column-3 relative no-padding no-border">
+					<img src="{{home}}/users/{{avatar}}" class="absolute" style="width:60px;height:60px;top:50%;transform:translateY(-50%)">
+				</span>
+				<span class="fullname"> {{firstname}} {{lastname}} </span>
+				<button class="st-nav inputLabel">
+					<label for="addStory" class="cursor-pointer"><i class="fa fa-plus" style="font-size:1.4rem"></i></label>
+				</button>
+			</div>
+			<hr>
+			<div id="story-feed" class="rowspan">
+				<div class="prototype st-container grid column-3 inline-table no-border" onclick="playStory(this)">
+					<video class="storyfile"></video>
+					<div class="story-info">
+						<span class="author">My Story</span>
+						<span class="timestamp"> (no story)</span>
+					</div>
+				</div>
+			</div>
+			<!-- Story Player -->
+			<div id="story-player" class="fixed grid z-index 10" style="display:none;width:100%;height:100%;left:0;top:0;background:#404040ba;z-index:20">
+				<div class="blur" style="width:100%;height:100%;position:absolute;filter:blur(10px);background:linear-gradient(140deg, #0f0f0fde 30%, #c62944d6 100%);"></div>
+				
+				<button class="storyNav left" onclick="slideLeft()">
+					<i class="fa fa-arrow-left"></i></button>
+				<div class="prototype st-container grid column-3 no-border" style="display:none;width:max-content;height:100%;margin:auto 0;position:relative;padding:0">
+					<div class="story-wrapper relative" style="min-width:320px;height: 100%;margin: auto">
+						<div style="width:100%;display:flex;color:white;position:absolute;" class="story-info grid">
+							<meter class="st-meter absolute z-index-10" min="0" style="height:2px;width:80px;overflow:hidden;border-radius:4px;top:50px;left:80px;background:transparent;border:0;" max="30"></meter>
+							<span style="width:50px;height:50px;display: block;border-radius: 50%;margin: 8px 12px;box-shadow: 0 0 80px 0px grey;border: 4px dotted #c4146e;" class="author-avatar relative overflow-hide">
+								<img style="width:100%;height:auto;top: 50%;left: 50%;transform: translate(-50%,-50%) !important;border-radius: 50%;" class="absolute" src="{{home}}/users/{{avatar}}">
+							</span>
+							<span class="author" style="margin:auto 0;color:white;font-size:14px;display:inline-table;position:relative;text-shadow:0 0 10px black;"></span>
+							<span class="timestamp" style="margin:auto auto auto 20px;font-size:12px;position:relative;color:black;text-shadow:0 0 10px white;"></span>
+						</div>
+						<video style="background:#111111a6;width:100%;max-width:780px;min-width:320px;height:100%;margin:auto;" class="storyfile"></video>
+					</div>
+				</div>
+				<button class="storyNav right" onclick="slideRight()">
+					<i class="fa fa-arrow-right"></i></button>
+			</div>
+			<div id="storyUploader" class="absolute z-index-10" style="display:none;width:100%;height:100%;left:0;top:0;background:#1a1a1a3d">
+				<span style="color:white;margin:auto;border:7px dashed #bf247b75;border-radius:50%;min-width:50px;min-height:50px" class="grid fa-spin"></span>
+				<span style="font-size:16px;color:white;top:50%;left:50%;transform:translate(-50%,-50%)" class="counter absolute">0%</span>
+			</div>
+		</div>
+	</div>
+</div>
+

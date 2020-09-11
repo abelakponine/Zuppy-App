@@ -1,0 +1,1 @@
+<% response.sendRedirect("app/login"); return; %>

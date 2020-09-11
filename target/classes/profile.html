@@ -1,0 +1,334 @@
+<!-- Body wrapper starts -->
+<div id="body-wrapper" class="z-index-2">
+	<!-- Responsive background image starts -->
+    <div class="bg-image">
+    	<!-- Container block starts -->
+        <div id="container" class="rowspan no-padding relative" style="width:100%;height:100%;">
+        	<div id="header-layer"></div>
+        	<div id="leftcol" class="grid column-3 no-border absolute z-index-2 overflow-x-hide" style="background:#404040d8;min-width:380px;height:calc(100% - 30px);left:-100%;padding:15px 1%;">
+                <div class="grid column-1 no-border">
+                    
+                </div>
+                <div class="grid column-1 no-border">
+                    <div id="user-identity" class="display-flex">
+                        <img src="../../images/Abel.jpg" style="width:100px;height:100px;border-radius:50%;">
+                        <div style="margin:auto 20px;color:white;">
+                            <span><h2 class="no-margin">{{username}}</h2></span>
+                            <div class="display-flex">
+                                <div>
+                                    <small style="font-size:12px;white-space:nowrap;width:max-content;" class="free-member">Free member</small>
+                                    <small style="font-size:12px;white-space:nowrap;width:max-content;">Friends &sdot; 1254</small>
+                                </div>
+                                <div class="user-social display-flex" style="padding:0 8px;border-left:1px solid #c1c1c1;margin-left:18px;">
+                                    <span class="fab fa-facebook"></span>
+                                    <span class="fab fa-twitter"></span>
+                                    <span class="fab fa-instagram"></span>
+                                    <span class="fab fa-github"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear-height"></div>
+                <!-- Editor -->
+                <div>
+                    <textarea id="editor" class="grid column-1" style="border-radius:4px;border-width:1px;font-family:arial;" placeholder="Share your thoughts.."></textarea>
+                    <button class="btn hoverBtn active no-border absolute" style="margin-top:6px;right:3%;border-radius:4px;">Post <span class="fas fa-feather-alt"></span></button>
+                </div>
+                <div class="clear-height"></div>
+                <!-- Biography -->
+                <div id="biography">
+                    <h3 class="color-white">About Me</h3>
+                    <hr class="relative" style="border-top:1px solid #888888ad;margin:4px auto 10px auto;">
+                    <div id="about-me">
+                        <div class="inline-table rowspan">
+                            <span class="key job-title">Job Title</span><span class="value">Software Developer</span>
+                        </div>
+                        <div class="inline-table rowspan">
+                            <span class="key workplace">Workplace</span><span class="value"> CIS @Strathclyde University</span>
+                        </div>
+                        <div class="inline-table rowspan">
+                            <span class="key education">Highest Degree</span><span class="value">Masters</span>
+                        </div>
+                        <div class="inline-table rowspan">
+                            <span class="key school-university">School</span><span class="value">University of Strathclyde</span>
+                        </div>
+                        <div class="inline-table rowspan">
+                            <span class="key school-university">From</span><span class="value">Nigeria</span>
+                        </div>
+                        <div class="inline-table rowspan">
+                            <span class="key school-university">Lives in</span><span class="value">Glasgow Scotland</span>
+                        </div>
+                        <div class="inline-table rowspan">
+                            <span class="key dob">Date of Birth</span><span class="value">17th April</span>
+                        </div>
+                        <div class="inline-table rowspan">
+                            <span class="key relationship">Status</span><span class="value">Single</span>
+                        </div>
+                    </div>
+                </div>
+        	</div>
+        	<!-- Main column starts -->
+        	<div id="maincol" class="grid column-3x2 no-border absolute z-index-2 rowspan display-flex" style="display:none;background:white;height:calc(100% - 20px);top:50%;left:50%;transform:translate(-50%, -50%);padding:10px 1%;">
+        		<!-- Main activity bar -->
+        		<div id="activity" class="grid column-3x2 inline-table no-border relative" style="width:calc(60% - 2%);height:calc(100% - 20px);">
+
+                    <!-- feed activity -->
+                    <div id="feed" class="absolute overflow-x-hide overflo-y-auto" style="width:calc(100% - 30px);height:calc(100% - 88px);padding:10px 20px 10px 10px;left:0;scrollbar-color:white #f0f0f0;scrollbar-width: thin;">
+                        <!-- show post -->
+                        <div class="post">
+                            <div id="author-info">
+                                <img class="inline-table vertical-align-middle" src="../../images/Abel.jpg" style="width:50px;height:50px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle">
+                                    <h3 class="no-margin">{{username}}</h3>
+                                    <small>Created: 27th Apr 2020 &sdot; 8:35 am </small>
+                                </div>
+                            </div>
+                            <article style="margin:14px 0;">Hey</article>
+                            <!-- post multimedia attachment -->
+                            <div id="media">
+                                <video style="background:#404040;width:100%;height:280px;border-radius:6px;"></video>
+                            </div>
+                            <!-- post reaction -->
+                            <div id="reaction" class="rowspan" style="margin-top:6px;">
+                                <span id="like" class="grid column-4 no-border center">
+
+                                </span>
+                                <span id="like" class="grid column-4 no-border center vertical-align-top">
+                                    <i class="far fa-heart"></i><br>
+                                    <small>1K Likes</small>
+                                </span>
+                                <span id="comment" class="grid column-4 no-border center vertical-align-top">
+                                    <i class="fas fa-comment-dots"></i> <span>Comments</span><br>
+                                    <small>555</small>
+                                </span>
+                                <span id="share" class="grid column-4 no-border center vertical-align-top">
+                                    <i class="fas fa-share-alt"></i> <span>Share</span><br>
+                                    <small>55</small>
+                                </span>
+                            </div>
+                        </div>
+                        <hr class="relative" style="border-top:2px solid #f9f9f9;margin:38px auto 20px auto;padding:0 20px 0 10px;left:-10px;">
+                        <!-- show post -->
+                        <div class="post">
+                            <div id="author-info">
+                                <img class="inline-table vertical-align-middle" src="../../images/Abel.jpg" style="width:50px;height:50px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle">
+                                    <h3 class="no-margin">{{username}}</h3>
+                                    <small>Created: 27th Apr 2020 &sdot; 8:35 am </small>
+                                </div>
+                            </div>
+                            <article style="margin:14px 0;">Hey</article>
+                            <!-- post multimedia attachment -->
+                            <div id="media">
+                                <video style="background:#404040;width:100%;height:280px;border-radius:6px;"></video>
+                            </div>
+                            <!-- post reaction -->
+                            <div id="reaction" class="rowspan" style="margin-top:6px;">
+                                <span id="like" class="grid column-4 no-border center">
+
+                                </span>
+                                <span id="like" class="grid column-4 no-border center vertical-align-top">
+                                    <i class="far fa-heart"></i><br>
+                                    <small>1K</small>
+                                </span>
+                                <span id="comment" class="grid column-4 no-border center vertical-align-top">
+                                    <i class="fas fa-comment-dots"></i> <span>Comments</span><br>
+                                    <small>555</small>
+                                </span>
+                                <span id="share" class="grid column-4 no-border center vertical-align-top">
+                                    <i class="fas fa-share-alt"></i> <span>Share</span><br>
+                                    <small>55</small>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <hr class="relative" style="border-top:2px solid #f9f9f9;margin:38px auto 20px auto;padding:0 20px 0 10px;left:-10px;">
+
+                        <div class="clear-height" style="height:68px;"></div>
+                    </div>
+
+                    <!-- message activity -->
+                    <div id="messages" class="absolute overflow-hide" style="display:none;width:calc(100% - 30px);height:calc(100% - 88px);padding:10px 20px;font-size:13.5px;left:-10px;scrollbar-color:white #f0f0f0;scrollbar-width: thin;">
+                        <!-- search message -->
+                        <div id="search-message" class="absolute z-index-2" style="width:100%;background:white;top:0;left:-12px;padding:0 6px 0 5px;box-shadow:-4px 6px 6px 0 #39393929;">
+                            <form class="display-flex">
+                                <input type="search" name="find-friend" style="width:calc(92% - 60px);padding:3%;padding-right:60px;" placeholder="Search Messages">
+                                <button><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                        <!-- Get messages -->
+                        <div class="relative overflow-x-hide overflo-y-auto z-index-1" style="height:100%;margin-top:52px;padding-top:20px;scrollbar-color:white #f0f0f0;scrollbar-width: thin;">
+                            <!-- show message -->
+                            <div class="show-message" class="cursor-pointer">
+                                <img class="inline-table vertical-align-top" src="../../images/Abel.jpg" style="width:50px;height:50px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle" style="width:80%;">
+                                    <h3 class="no-margin">{{username}}</h3>
+                                    <small>Last seen: 27th Apr 2020 &sdot; 8:35 am </small>
+                                    <!-- message short preview -->
+                                    <div style="margin-top:8px;">
+                                        <span id="message-preview" style="min-width:60%;display:inline-block;">
+                                            Hey Waddup!
+                                        </span>
+                                        <span class="fas fa-check" style="margin-left:8px;color:#ff11b0;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="relative" style="border-top:2px solid #f9f9f9;margin:12px auto 12px auto;padding:0 20px 0 10px;left:-10px;">
+                            <!-- show message -->
+                            <div class="show-message" class="cursor-pointer">
+                                <img class="inline-table vertical-align-top" src="../../images/Abel.jpg" style="width:50px;height:50px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle" style="width:80%;">
+                                    <h3 class="no-margin">{{username}}</h3>
+                                    <small>Last seen: 27th Apr 2020 &sdot; 8:35 am </small>
+                                    <!-- message short preview -->
+                                    <div style="margin-top:8px;">
+                                        <span id="message-preview" style="min-width:60%;display:inline-block;font-weight:bolder;">
+                                            Hey Waddup!
+                                        </span>
+                                        <span class="fas fa-certificate" style="margin-left:8px;color:#0fdb0f;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="relative" style="border-top:2px solid #f9f9f9;margin:12px auto 12px auto;padding:0 20px 0 10px;left:-10px;">
+                            <!-- show message -->
+                            <div class="show-message" class="cursor-pointer">
+                                <img class="inline-table vertical-align-top" src="../../images/Abel.jpg" style="width:50px;height:50px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle" style="width:80%;">
+                                    <h3 class="no-margin">{{username}}</h3>
+                                    <small>Last seen: 27th Apr 2020 &sdot; 8:35 am </small>
+                                    <!-- message short preview -->
+                                    <div style="margin-top:8px;">
+                                        <span id="message-preview" style="min-width:60%;display:inline-block;">
+                                            Hey Waddup!
+                                        </span>
+                                        <span class="fas fa-check" style="margin-left:8px;color:silver;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="relative" style="border-top:2px solid #f9f9f9;margin:12px auto 12px auto;padding:0 20px 0 10px;left:-10px;">
+                            <!-- show message -->
+                            <div class="show-message" class="cursor-pointer">
+                                <img class="inline-table vertical-align-top" src="../../images/Abel.jpg" style="width:50px;height:50px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle" style="width:80%;">
+                                    <h3 class="no-margin">{{username}}</h3>
+                                    <small>Last seen: 27th Apr 2020 &sdot; 8:35 am </small>
+                                    <!-- message short preview -->
+                                    <div style="margin-top:8px;">
+                                        <span id="message-preview" style="min-width:60%;display:inline-block;">
+                                            Hey Waddup!
+                                        </span>
+                                        <span class="fas fa-check-double" style="margin-left:8px;color:#ff11b0;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="relative" style="border-top:2px solid #f9f9f9;margin:12px auto 12px auto;padding:0 20px 0 10px;left:-10px;">
+                            
+                            <div class="clear-height" style="height:68px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- activity navigator -->
+                    <div id="activity-navigator" class="center absolute rowspan z-index-3" style="background:white;width:calc(100% - 10px);bottom:0px;padding:10px;left:-10px;box-shadow:0 -4px 6px #00000020;">
+                        <button class="feed grid column-4 active">
+                            <i class="fas fa-rss"></i><small>Feeds</small>
+                        </button>
+                        <button class="message grid column-4">
+                            <i class="fas fa-envelope"></i><small>Messages</small>
+                        </button>
+                        <button class="add-friends grid column-4">
+                            <i class="fas fa-user-plus"></i><small>Add Friends</small>
+                        </button>
+                        <button class="friend-search grid column-4" style="display:none;">
+                            <i class="fas fa-user-friends"></i><small>Friends</small>
+                        </button>
+                        <button class="notification grid column-4">
+                            <i class="fas fa-bell"></i><small>Notification</small>
+                        </button>
+                        <button class="user-profile grid column-4" style="display:none;">
+                            <i class="fas fa-user"></i><i class="fas fa-feather"></i><small>Profile</small>
+                        </button>
+                    </div>
+                </div>
+        		<!-- End activity bar -->
+        		<!-- Widget bar starts -->
+        		<div id="widget_bar" class="grid column-3 no-border inline-table relative overflow-y-auto" style="width:calc(40% - 2%);height:calc(100% - 20px);padding:0 1%;">
+            		<div id="widget_container">
+                        <div id="search-friends">
+                            <form class="display-flex">
+                                <input type="search" name="find-friend" style="width:calc(92% - 60px);padding:3%;padding-right:60px;" placeholder="Search Friends">
+                                <button><i class="fas fa-search"></i></button>
+                            </form>         
+                        </div>
+                        <!-- Friends list -->
+                        <div id="friends-list">
+                            <div class="friend">
+                                <img class="inline-table vertical-align-middle" src="../../images/Abel.jpg" style="width:40px;height:40px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle">
+                                    <h4 class="no-margin">{{username}}</h4>
+                                    <small class="online">Online</small>
+                                </div>
+                            </div>
+                            <div class="friend">
+                                <img class="inline-table vertical-align-middle" src="../../images/Abel.jpg" style="width:40px;height:40px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle">
+                                    <h4 class="no-margin">{{username}}</h4>
+                                    <small class="offline">Last seen: 27th Apr 2020 &sdot; 8:35 am </small>
+                                </div>
+                            </div>
+                            <div class="friend">
+                                <img class="inline-table vertical-align-middle" src="../../images/Abel.jpg" style="width:40px;height:40px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle">
+                                    <h4 class="no-margin">{{username}}</h4>
+                                    <small class="online">Online</small>
+                                </div>
+                            </div>
+                            <div class="friend">
+                                <img class="inline-table vertical-align-middle" src="../../images/Abel.jpg" style="width:40px;height:40px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle">
+                                    <h4 class="no-margin">{{username}}</h4>
+                                    <small class="offline">Last seen: 27th Apr 2020 &sdot; 8:35 am </small>
+                                </div>
+                            </div>
+                            <div class="friend">
+                                <img class="inline-table vertical-align-middle" src="../../images/Abel.jpg" style="width:40px;height:40px;border-radius:50%;margin-right:10px;">
+                                <div class="inline-table vertical-align-middle">
+                                    <h4 class="no-margin">{{username}}</h4>
+                                    <small class="online">Online</small>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- News and Ads slider -->
+                        <div id="news-ads-slide" class="relative overflow-hide" style="opacity:0">
+                            <div class="slide active" style="background:url('../../images/cnn.jpg');background-position:center;position:absolute;width:auto;background-size:cover;top:50%;transform:translateY(-50%);">
+                                <span class="absolute" style="background:linear-gradient(to bottom, #00000061 5%, #000000e6 70%);width:100%;height:100%;top:0;"></span>
+                            </div>
+                            <div class="slide" style="background:url('../../images/bbc.png');background-position:center;position:absolute;width:auto;background-size:cover;top:50%;transform:translateY(-50%);">
+                                <span class="absolute" style="background:linear-gradient(to bottom, #00000061 5%, #000000e6 70%);width:100%;height:100%;top:0;"></span>
+                                <span class="color-white">Hello World!</span>
+                            </div>
+                            <div class="slide" style="background:url('../../images/bg74.png');background-position:center;position:absolute;width:auto;background-size:cover;top:50%;transform:translateY(-50%);">
+                                <span class="absolute" style="background:linear-gradient(to bottom, #00000061 5%, #000000e6 70%);width:100%;height:100%;top:0;"></span>
+                            </div>
+                        </div>
+                    </div>
+        		</div>
+        		<!-- End widget bar -->
+        	</div>
+        	<!-- End main column -->
+        </div>
+        <script type="text/javascript">
+            // service worker
+            navigator.serviceWorker.register("../../js/service-worker.js");
+
+            // web worker
+            if (Worker !== undefined){
+                var worker = new Worker("../../js/worker.js");
+                worker.onmessage = function(e){
+                    console.log(e);
+                };
+            }
+            else {
+                console.log("false");
+            }
+        </script>

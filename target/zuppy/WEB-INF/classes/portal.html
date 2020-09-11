@@ -1,0 +1,68 @@
+
+<div id="body-wrapper" class="z-index-2">
+    <div id="header-layer" class="opacity-0-25 fixed"></div>
+    <div id="container" class="navOffset rowspan z-index-2">
+        <div class="grid column-3 no-border inline-table vertical-align-top relative navOffset center">
+            <span id="typewriter" data-text="Welcome to Zuppy App&trade;, Easy connection with friends and family&nbsp;:), Fast and Responsive With Real-Time Communication., Bringing you the best of connectivity.." data-speed="40" style="font-size:1.2rem;"> </span>
+        </div>
+        <div class="grid column-3 no-border">
+            <!-- Login Form -->
+            <form id="login" class="dropBouncee navOffset relative" method="post" action="processor">
+                <input name="formType" value="login" required style="display:none;"/>
+                <input name="username" min="5" placeholder="Username or Email" required>
+                <input type="password" name="password" min="5" placeholder="Password" required>
+                <button class="submit btn hoverBtn active">Login <i class="fa fa-spinner fa-spin" style="display:none;color:white;margin-left:4px;"></i></button>
+                <p>
+                	<b class="center color-white">or</b>
+                </p>
+                <button class="btn bg-white display-block" style="width:100px;padding:12px;margin:auto;border-radius:30px;border:1px solid transparent;" onclick="
+                    event.preventDefault();
+                    $('#login').removeClass('dropBounce').hide(300);
+                    $('#signup').removeClass('dropBounce').delay(40).show(300);
+                ">Register</button>
+            </form>
+            <!-- Registration Form -->
+            <form id="signup" method="post" action="processor" class="dropBouncee navOffset relative" autocomplete="off" style="display:none;">
+                <input name="formType" value="signup" style="display:none;"/>
+                <input name="firstname" placeholder="Firstname" required>
+                <input name="lastname" placeholder="Lastname" required>
+                <select name="gender" required>
+                	<option>Male</option>
+                	<option>Female</option>
+                	<option value="confidential">Prefer not to answer</option>
+                </select>
+                <input type="date" name="dob" value="2020-06-05" required/>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="telephone" placeholder="Telephone" required>
+                <input type="text" name="country" placeholder="Your country (required)" onkeyup="
+                    if (this.value.length > 0){
+                        $('.country-list').show(60);
+                        $('.country-list > ul > li:not(li:contains(\''+this.value[0].toUpperCase()+this.value.substr(1,this.value.length)+'\'))').hide();
+                        $('.country-list > ul > li:contains(\''+this.value[0].toUpperCase()+this.value.substr(1,this.value.length)+'\')').show();
+                    }
+                    else {
+                        $('.country-list').hide(60);
+                    }
+                " required>
+                <div class="country-list absolute z-index-6" style="display:none;">
+                    <ul required>
+                        {{country_list}}
+                    </ul>
+                </div>
+                <input name="username" min="5" placeholder="Username" required>
+                <input type="password" min="5" name="password" placeholder="Password" required>
+                <button class="submit btn hoverBtn active">Register <i class="fa fa-spinner fa-spin" style="display:none;color:white;margin-left:4px;"></i></button>
+                <p>
+                	<b class="center color-white">or</b>
+                </p>
+                <button class="btn bg-white display-block" style="width:100px;padding:12px;margin:auto;border-radius:30px;border:1px solid transparent;" onclick="
+                    event.preventDefault();
+                    $('#signup').removeClass('dropBounce').hide(300);
+                    $('#login').removeClass('dropBounce').delay(40).show(300);
+                ">Login</button>
+            </form>
+        </div>
+        <div class="grid column-3 no-border">
+        </div>
+	</div>
+            

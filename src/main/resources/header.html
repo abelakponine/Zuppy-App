@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<!-- <meta http-equiv="expires" content="Fri, 17 Apr 2020 0:0:0 GMT"/>
+    <meta name="cache-control" content="no-store"/> -->
+    <meta name="cache-control" content="public, max-age=3600, immutable"/>
+    <meta name="viewport" content="width=385,minimum-scale=0.1,maximum-scale=1,user-scalable=no"/>
+    <meta name="theme-color" content="#f104a2">
+    <meta name="application-name" content="Zuppy App™">
+    <meta name="description" content="Cross-platform, Real-Time Communication and Responsive Application | Bringing you the best of connectivity...">
+    <meta name="keyword" content="Real-Time, Communication, Cross-platform, App, Application, Messenger, Chat, WebApp, Signup, Login">
+    <meta name="author" content="Abel Akponine">
+    <title>Zuppy WebApp &trade; | {{title}}</title>
+    <!-- Preload -->
+    <link rel="preload" href="../css/zuppy.app.css" as="style"/>
+    <link rel="preload" href="../css/portal.css" as="style"/>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style">
+    <link rel="preload" href="../images/bg.jpg" as="image">
+    <link rel="preload" href="../zuppy-mini.png" as="image">
+    <link rel="preload" href="../zuppy.png" as="image">
+    <link rel="preload" href="../js/jquery.min.js" as="script">
+    <!-- Fallback -->
+    <link rel="stylesheet" href="../css/zuppy.app.css"/>
+    <link rel="stylesheet" href="../css/portal.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../zuppy-mini.png">
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="page-loader fixed" style="display:flex;background:white;width:100%;height:100%;padding-bottom:100px;top:0;z-index:100">
+        <div class="dropBounce display-flex flex-column relative center" style="height:max-content;margin:auto !important;">
+            <span class="logo blink"><img src="../zuppy-mini.png" style="width:80px;height:auto;"></span>
+            <span class="loader-text" style="display:none;color:#f0b;font-size:1rem;margin-top:10px"><i class="fa fa-spinner fa-spin"></i>&ensp;Loading Zuppy...</span>
+        </div>
+    </div>
+    <header class="nav center no-bg rowspan inline-flex no-padding" style="width:100%">
+        <span class="grid column-4 inline-table no-border no-padding">
+            <img class="cursor-pointer blink2" src="../zuppy-mini.png" style="width:65px;margin-top:10px;">
+        </span>
+<ul class="list-item grid column-4x2 inline-table no-border no-padding">
+            <li class="item-nav" style="
+"><a href="#home" style="
+    color: inherit;
+" onclick="$(window).scrollTop(0)">Home</a></li>
+            <li class="item-nav" onclick="$('#about').fadeIn();" style="margin:auto !important">About Zuppy</li>
+            <li class="installZuppy item-nav" style="display:none">Install Zuppy</li>
+        </ul>
+        <ul class="grid column-4 inline-table no-border no-padding"></ul>
+    </header>
+    <div id="about" class="center grid fixed" style="background: white; z-index: 100; height: calc(92% - 130px); overflow-y: auto; padding: 4%; border-radius: 40px; left: 50%; transform: translateX(-50%); border-top: 25px solid white; width: calc(92%); max-width: 500px; border-bottom: 50px solid white; top: 10px; display: none;">
+    <button style="
+    position: relative;
+    padding: 8.5px 12px 10px 10px;
+    border-radius: 50%;
+    height: 16px;
+    width: 12px;
+    display: flex;
+    align-content: center;
+    font-size: 18px;
+    color: #989898;
+    background: #eae8e8;
+    float: right;
+    border: 0;
+    outline: none;
+" onclick="$('#about').fadeOut();"><i class="fas fa-times" style="
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+"></i></button>
+    <h2 style="
+    color: #f90073;
+">Welcome to Zuppy&nbsp;App<sup>™</sup></h2>
+	<h3 style="
+    color: #404040;
+">A Real-Time and Cross-Platform Application</h3>
+	<h4><span style="
+">Developed by:</span> <span style="
+    font-style: italic;
+"> &nbsp;<i class="fab fa-github" style="font-size:1.5rem"></i>&nbsp; <a href="https://github.com/abelakponine" style="
+    color: #f90073 !important;text-decoration:underline;
+" target="_blank">Abel Akponine</a></span></h4>
+	<h5>Copyright © 2020</h5>
+	<div class="display-block" style="text-align:left">
+		<h4>Features and Technologies:</h4>
+		<ul>
+			<li>PHP WebSocket</li>
+			<li>WebRTC</li>
+			<li>Java Jax-RS (Jersey REST API)</li>
+			<li>HTML5</li>
+			<li>CSS3</li>
+			<li>Native JavaScript</li>
+			<li>Mysql JDBC Java &amp; PHP</li>
+			<ul>
+				<li class="display-block"><h4>Hosting</h4></li>
+				<li>Google Cloud Compute Engine</li>
+				<li>Cloudflare DNS</li>
+				<li>Freenom Free Domain Name (<a href="https://zuppy.ml/app/login" style="
+    color: #f90073;
+">https://www.zuppy.ml</a>)</li>
+				<li class="display-block"><h4>IDEs</h4></li>
+				<li>Eclipse</li>
+				<li>Android Studio (Android Version)</li>
+			</ul>
+		</ul>
+	</div>
+	<p style="
+    margin-bottom: 100px;
+    margin-top: 40px;">This project was developed as part of the Summer Project for MSC Software Development at The University of Strathclyde Glasgow, UK. 2020.</p>
+    </div>

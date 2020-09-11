@@ -1,0 +1,275 @@
+/*!
+* Filename: zuppy.app.css
+* Filetype: Stylesheet
+* Version 1.0
+* Author: Abel O. Akponine
+* Github: https://github.com/abelakponine
+* Copyright © 2020
+*/
+
+.nav_btns_wrap > button {
+	background: none;
+	min-width: 40px;
+	height: 40px;
+	border: 1px solid #ff11b0a5;
+	border-radius: 50px;
+	padding: 10px;
+	color: #ff11b0;
+	font-weight: bold;
+	font-size: 12px;
+	margin: 0px 6px;
+	vertical-align: middle;
+	outline: none;
+	transition-duration: 0.1s;
+}
+.nav_btns_wrap > button.active {
+	background-image: linear-gradient(to bottom, #ff11b0 20%, #9e077e 200%);
+	color: white;
+	box-shadow: 0 0 12px 1px #dadada;
+}
+.nav_btns_wrap > button:hover {
+	background-image: linear-gradient(to bottom, #ff11b0 20%, #9e077e 200%);
+	color: white;
+	box-shadow: 0 0 12px 1px #dadada;
+}
+#action_nav > span {
+	background: #ffffffa4;
+	width: fit-content;
+	width: 50px;
+	height: 50px;
+	padding: 2px;
+	text-shadow: 0 0 20px #ff95df;
+	font-size: 2rem;
+	color: #ff11b0;
+	cursor: pointer;
+	border-radius: 50%;
+	line-height: 1.6;
+	text-align: center;
+}
+#action_nav > span:hover {
+	text-shadow: 0 0 20px #404040aa;
+}
+.free-member {
+	background: #07ad07;
+	display: block;
+	width: fit-content;
+	margin: 4px 0;
+	padding: 5px;
+	border-radius: 2px;
+}
+.user-social > span {
+	margin: auto 6px;
+	font-size: 1.4rem;
+	cursor: pointer;
+}
+#activity-navigator > button {
+	background: white; linear-gradient(to bottom, #fff 20%, silver 200%) !important;
+	padding: 10px 1%;
+	font-size: 12px;
+	border: 0;
+	box-shadow: 0 0 2px 0 #d6d6d6;
+}
+#activity-navigator > button:hover {
+	background: #f8f8f8 !important;
+}
+#activity-navigator > button.active {
+	background: linear-gradient(to bottom, #ff11b0 20%, #9e077e 200%) !important;
+	color: white !important;
+	border-color: #ff11b0;
+}
+#activity-navigator > button > i {
+	padding: 6px;
+	font-size: 16px;
+	vertical-align: middle;
+}
+#activity-navigator > button > small {
+	font-size: 12px;
+	vertical-align: middle;
+	font-family: arial;
+}
+#reaction > span {
+	cursor: pointer;
+	color: #606060;
+}
+#reaction > span:hover {
+	text-shadow: 0 0 14px #ff11b0a8;
+}
+#reaction > span > i {
+	font-size: 1.4rem;
+	margin: 0 4px;
+	vertical-align: middle;
+}
+#reaction > span > small {
+	background: #f9f9f9;
+	padding: 4px;
+	border-radius: 6px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ff11b0;
+}
+#reaction > span > span {
+	font-size: 14px;
+	vertical-align: middle;
+}
+/* messages */
+.show-message {
+	padding: 4px 4px 8px 4px;
+	cursor: pointer;
+}
+.show-message:hover {
+	background: #f7f7f7;
+}
+#message-preview {
+	background: #f0f0f0;
+	padding: 6px 10px;
+	border-radius: 8px;
+}
+/* About Me */
+#about-me {
+	background: #515151c9;
+	width: 92%;
+	padding: 4%;
+	margin: auto auto 40px auto;
+	color: white;
+	border-radius: 8px;
+}
+#about-me .key {
+	display: inline-table;
+	width: 48%;
+	max-width: 120px;
+	padding: 1%;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 2px 0px;
+	vertical-align: top;
+}
+#about-me .value {
+	display: inline-table;
+	width: 48%;
+	padding: 1%;
+	font-size: 14.5px;
+	margin: 2px 0px;
+	vertical-align: middle;
+}
+#maincol {
+	margin: 0 auto auto auto;
+}
+#activity {
+	margin: 0 auto;
+	border-right: 1px solid #f0f0f0;
+}
+/* search friends */
+#search-message > form > button, #search-friends > form > button {
+	margin: 3.6px;
+	margin-left: -40px;
+	position: relative;
+	border: 0;
+	padding: 0 15px;
+	background:
+	#f410aa;
+	border: 0;
+	border-radius: 0 6px 6px 0;
+	color:
+	white;
+}
+#widget_bar > #widget_container {
+	padding: 5px 1%;
+	overflow-y: auto;
+	scrollbar-color: white #f0f0f0;
+	scrollbar-width: thin;
+}
+#friends-list {
+	background: #fafafa;
+	display: block;
+	width: 90%;
+	min-height: 250px;
+	max-height: 300px;
+	overflow-y: auto;
+	padding: 2%;
+	margin: auto;
+	margin-bottom: 16px;
+	border-radius: 6px;
+	scrollbar-color: white #f0f0f0;
+	scrollbar-width: thin;
+}
+#news-ads-slide {
+	background: #fafafa;
+	display: block;
+	width: 90%;
+	min-height: 200px;
+	padding: 2% 6px;
+	margin: auto;
+}
+.friend {
+	margin: 10px auto;
+	cursor: pointer;
+}
+.friend:after {
+	border: 2px solid;
+}
+.friend .online {
+	color: #07ad07;
+}
+.friend .offline {
+	font-size: 11.5px;
+}
+/* webkit scrollbar */
+#feed::-webkit-scrollbar, #messages::-webkit-scrollbar, #friends-list::-webkit-scrollbar, #widget_bar > #widget_container::-webkit-scrollbar {
+	background: white;
+}
+#feed::-webkit-scrollbar-thumb, #messages::-webkit-scrollbar-thumb, #friends-list::-webkit-scrollbar-thumb, #widget_bar > #widget_container::-webkit-scrollbar-thumb {
+	background: #f7f7f7;
+}
+/* responsive layouts */
+@media all and (max-width:1280px){
+	h2 {
+		font-size: 22px !important;
+	}
+	#search-friends > form {
+		min-width: 200px !important;
+	}
+}
+@media all and (max-width:1180px){
+	#widget_bar {
+		display: none !important;
+	}
+	#leftcol {
+		width: calc(390px - 2%) !important;
+	}
+	#activity {
+		width: calc(90% - 2%) !important;
+	}
+	h2 {
+		font-size: 18px !important;
+	}
+	#search-friends > form {
+		min-width: 200px !important;
+	}
+}
+@media all and (max-width:849px){
+	* {
+		scrollbar-width: none !important;
+	}
+	#maincol {
+		width: calc(100% - 2%) !important;
+		left: 0 !important;
+	}
+	#leftcol {
+		display: none;
+	}
+	*#media > video {
+		min-height: 220px !important;
+		height: unset !important;
+	}
+	#activity {
+		border-right: unset !important;
+	}
+	#feed {
+		width: calc(100% - 20px) !important;
+		padding: 10px 10px 10px 10px !important;
+	}
+	#activity-navigator {
+		width: calc(113.9% - 20px) !important;
+		left: -7% !important;
+	}
+}

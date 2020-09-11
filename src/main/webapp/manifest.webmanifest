@@ -1,0 +1,16 @@
+{
+	"short_name": "Zuppy App™",
+	"name": "Zuppy App™ | version 1.0",
+	"description": "Cross-platform, Real-Time Communication and Responsive Application | Bringing you the best of connectivity...",
+	"icon": [{
+		"src": "/zuppy.png",
+		"type": "image/png",
+		"sizes": "192x192"
+	}],
+	"background_color": "#ffffff",
+
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#db0070",
+	"start_url": "/app/login;device=web"
+}
